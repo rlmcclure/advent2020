@@ -27,9 +27,17 @@ with open(filestr) as f:
         for l in f:
             nList[ii]=int(l)
             ii+=1
-#%%
+            
+#%% sort so it's more efficient? 
 nList.sort()
 nListFlip = np.flip(nList)
+#%% part 1
+for ii,nn in enumerate(nList):
+    for jj,ff in enumerate(nListFlip):
+            if nn+ff == 2020:
+                print(nn*ff)
+                    
+#%%part 2 this is nasty
 for ii,nn in enumerate(nList):
     for jj,ff in enumerate(nListFlip):
             for kk,tt in enumerate(nList):
