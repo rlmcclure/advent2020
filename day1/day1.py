@@ -9,8 +9,6 @@ Created on Mon Nov 30 23:29:05 2020
 
 import os
 import numpy as np
-from astropy.io import fits
-import pandas as pd
 import timeit
 start = timeit.default_timer()
 go1 = 1
@@ -32,7 +30,7 @@ with open(filestr) as f:
             ns[ii]=int(l)
             ii+=1
             
-#%% sort so it's more efficient? 
+#%% sort so it's more efficient? this takes it from .05s to .001s wtf
 ns.sort()
 #%% part 1
 for ii,nn in enumerate(ns):
@@ -42,14 +40,15 @@ for ii,nn in enumerate(ns):
                     print(nn*ff)
                     go1 = 0
                     
-#%% part 2 this is nasty
+#%% part 2
 for ii,nn in enumerate(ns):
-    for jj,ff in enumerate(ns):
-        if go2 == 1 and 2020-nn-ff >= min(ns):
-            for kk,tt in enumerate(ns):
-                if nn+ff+tt == 2020:
-                    print(nn*ff*tt)
-                    go2 = 0
+    if go2 == 1:
+        for jj,ff in enumerate(ns):
+            if go2 == 1 and 2020-nn-ff >= min(ns):
+                for kk,tt in enumerate(ns):
+                    if nn+ff+tt == 2020:
+                        print(nn*ff*tt)
+                        go2 = 0
                         
 end = timeit.default_timer()
 print(end-start)
