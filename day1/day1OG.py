@@ -11,7 +11,6 @@ import os
 import numpy as np
 from astropy.io import fits
 import pandas as pd
-import itertools
 import timeit
 start = timeit.default_timer()
 go1 = 1
@@ -32,20 +31,25 @@ with open(filestr) as f:
         for l in f:
             ns[ii]=int(l)
             ii+=1
-
+            
+#%% sort so it's more efficient? 
+ns.sort()
 #%% part 1
-for n in itertools.product(ns, ns):
+for ii,nn in enumerate(ns):
     if go1 == 1:
-        if sum(n) == 2020:
-            print(np.product(n))
-            go1 = 0
-#%% part 2
-for n in itertools.product(ns, ns, ns):
-    if go2 == 1:
-        if sum(n) == 2020:
-            print(np.product(n))
-            go2 = 0
-    
-
+        for jj,ff in enumerate(ns):
+                if go1 == 1 and nn+ff == 2020:
+                    print(nn*ff)
+                    go1 = 0
+                    
+#%% part 2 this is nasty
+for ii,nn in enumerate(ns):
+    for jj,ff in enumerate(ns):
+        if go2 == 1 and 2020-nn-ff >= min(ns):
+            for kk,tt in enumerate(ns):
+                if nn+ff+tt == 2020:
+                    print(nn*ff*tt)
+                    go2 = 0
+                        
 end = timeit.default_timer()
 print(end-start)
