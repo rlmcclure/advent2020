@@ -36,10 +36,15 @@ for ii,nn in enumerate(nList):
     for jj,ff in enumerate(nListFlip):
             if nn+ff == 2020:
                 print(nn*ff)
+                exit
                     
 #%%part 2 this is nasty
 for ii,nn in enumerate(nList):
     for jj,ff in enumerate(nListFlip):
             for kk,tt in enumerate(nList):
+                '''
+                ideas to make it more eff -- 
+                '''
                 if nn+ff+tt == 2020:
                     print(nn*ff*tt)
+                    exit
