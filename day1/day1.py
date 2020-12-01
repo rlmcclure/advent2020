@@ -33,19 +33,19 @@ with open(filestr) as f:
 #%% sort so it's more efficient? this takes it from .05s to .001s wtf
 ns.sort()
 #%% part 1
-for ii,nn in enumerate(ns):
+for nn in ns:
     if go1 == 1:
-        for jj,ff in enumerate(ns):
+        for ff in ns:
                 if go1 == 1 and nn+ff == 2020:
                     print(nn*ff)
                     go1 = 0
-                    
+
 #%% part 2
-for ii,nn in enumerate(ns):
+for nn in ns:
     if go2 == 1:
-        for jj,ff in enumerate(ns):
+        for ff in ns:
             if go2 == 1 and 2020-nn-ff >= min(ns):
-                for kk,tt in enumerate(ns):
+                for tt in ns:
                     if nn+ff+tt == 2020:
                         print(nn*ff*tt)
                         go2 = 0
