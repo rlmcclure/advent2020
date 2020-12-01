@@ -33,17 +33,17 @@ with open(filestr) as f:
 #%% sort so it's more efficient? this takes it from .05s to .001s wtf
 ns.sort()
 #%% part 1
-while go1 == 1:
+if go1 == 1:
     for nn in ns:
         if go1 == 1:
             for ff in ns:
-                    if go1 == 1 and nn+ff == 2020:
-                        print(nn*ff)
-                        go1 = 0
-                        break
+                if go1 == 1 and nn+ff == 2020:
+                    print(nn*ff)
+                    go1 = 0
+                    break
 
 #%% part 2
-while go2 ==1:
+if go2 ==1:
     for nn in ns:
         if go2 == 1:
             for ff in ns:
@@ -53,6 +53,7 @@ while go2 ==1:
                             print(nn*ff*tt)
                             go2 = 0
                             break
-                        
+                    
+        
 end = timeit.default_timer()
 print(end-start)
