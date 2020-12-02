@@ -34,23 +34,27 @@ with open(filestr) as f:
 ns.sort()
 #%% part 1
 if go1 == 1:
-    for nn in ns:
+    for ii,nn in enumerate(ns):
         if go1 == 1:
-            for ff in ns:
+            for jj,ff in enumerate(ns):
                 if go1 == 1 and nn+ff == 2020:
                     print(nn*ff)
+                    print('Part 1 values are %i & %i.'%(nn,ff))
+                    print('Part 1 indexes are %i & %i of %i.\n'%(ii,jj,siz))
                     go1 = 0
                     break
 
 #%% part 2
 if go2 ==1:
-    for nn in ns:
+    for ii,nn in enumerate(ns):
         if go2 == 1:
-            for ff in ns:
+            for jj,ff in enumerate(ns):
                 if go2 == 1 and 2020-nn-ff >= min(ns):
-                    for tt in ns:
+                    for kk,tt in enumerate(ns):
                         if nn+ff+tt == 2020:
                             print(nn*ff*tt)
+                            print('Part 2 values are %i, %i, & %i.'%(nn,ff,tt))
+                            print('Part 2 indexes are %i, %i, & %i of %i.'%(ii,jj,kk,siz))
                             go2 = 0
                             break
                     
